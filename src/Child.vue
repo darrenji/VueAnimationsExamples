@@ -1,16 +1,15 @@
 <template>
-    <div>
-        <h2>I am child</h2>
-        <slot></slot>
+    <div class="ball">
     </div>
 </template>
 
 
 <style>
-    .modal1 {
-        background: cyan;
-        color: black;
-        padding: 20px;
-        width: 200px;
+    .ball {
+        width: 60px;
+        height: 60px;
+        transform-origin: 50% 50%;
+        transform: translate3d(0, 300px 0) rotate(0);
+        background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/soccerball.svg");
     }
 </style>
