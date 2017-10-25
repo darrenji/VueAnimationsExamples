@@ -11,6 +11,10 @@
 <!--                 一个transition内只能包含一个元素-->
                   <div class="alert alert-info" v-if="show">This is some Info</div>
               </transition>
+              <transition name="slide">
+<!--                 一个transition内只能包含一个元素-->
+                  <div class="alert alert-info" v-if="show">This is some Info</div>
+              </transition>
           </div>
       </div>
   </div>
@@ -42,5 +46,45 @@
     .fade-leave-active {
         transition: opacity 1s;
         opacity: 0;
+    }
+    
+    .slide-enter {
+        
+/*
+        下面设置过了就不需要设置了
+        transform: translateY(20px);
+*/
+    }
+    
+    .slide-enter-active {
+        animation: slide-in 1s ease-out forwards;
+    }
+    
+    .slide-leave {
+        
+    }
+    
+    .slide-leave-active {
+        animation: slide-out 1s ease-out forwards;
+    }
+    
+    @keyframes slide-in {
+        from {
+            transform: translateY(20px);
+        }
+        
+        to {
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slide-out {
+        from {
+            transform: translateY(0);
+        }
+        
+        to {
+            transform: translateY(20px);
+        }
     }
 </style>
