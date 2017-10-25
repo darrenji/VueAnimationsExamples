@@ -3,15 +3,19 @@
       <div class="row">
           <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
               <h1>Animations</h1>
+              <select v-mode="alertAnimation" class="form-control">
+                  <option value="fade">Fade</option>
+                  <option value="slide">Slide</option>
+              </select>
               <hr>
               <button class="btn btn-primary" @click="show = !show">Show Alert</button>
               <br>
               <br>
-              <transition name="fade">
+              <transition :name="alertAnimation">
 <!--                 一个transition内只能包含一个元素-->
-                  <div class="alert alert-info" v-if="show">This is some Info</div>
+                  <div class="alert alert-info" v-show="show">This is some Info</div>
               </transition>
-              <transition name="slide" type="animation" appear>
+              <transition :name="alertAnimation" type="animation" appear>
 <!--                 一个transition内只能包含一个元素-->
                   <div class="alert alert-info" v-if="show">This is some Info</div>
               </transition>
@@ -19,7 +23,7 @@
                   enter-active-class="animated bounce"
                   leave-active-class="animated shake">
 <!--                 一个transition内只能包含一个元素-->
-                  <div class="alert alert-info" v-show="show">This is some Info</div>
+                  <div class="alert alert-info" v-if="show">This is some Info</div>
               </transition>
           </div>
       </div>
@@ -30,7 +34,8 @@
     export default {
         data(){
             return {
-                show: true
+                show: true,
+                alertAnimation: 'fade'
             }
         }
     }
