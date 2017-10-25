@@ -11,9 +11,15 @@
 <!--                 一个transition内只能包含一个元素-->
                   <div class="alert alert-info" v-if="show">This is some Info</div>
               </transition>
-              <transition name="slide" type="animation">
+              <transition name="slide" type="animation" appear>
 <!--                 一个transition内只能包含一个元素-->
                   <div class="alert alert-info" v-if="show">This is some Info</div>
+              </transition>
+              <transition
+                  enter-active-class="animated bounce"
+                  leave-active-class="animated shake">
+<!--                 一个transition内只能包含一个元素-->
+                  <div class="alert alert-info" v-show="show">This is some Info</div>
               </transition>
           </div>
       </div>
@@ -24,7 +30,7 @@
     export default {
         data(){
             return {
-                show: false
+                show: true
             }
         }
     }
