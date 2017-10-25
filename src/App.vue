@@ -28,24 +28,24 @@
 
 <style>
     
-/*
-    enter, enter-active, enter-to
-    leave, leave-active, leave-to
-    如果我们想针对transform做transition效果的话，那enter-active使用ease-out, leave-active使用ease-in
-*/
-    
-    .bounce-enter-active, .bounce-leave-active {
-        transition: all .5s;
+    @keyframes bounce {
+        0% {
+            transform: scale(0);
+        }
+        80% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
     
-/*    
-    enter和leave-to是开始和离开的节点
-    enter的时候是绑定，leave-to的时候是解绑
-    为什么不在enter-to上设置opacity:1呢？为什么不在leave上设置opacity:1内？因为每个过程节点上的opactiy的默认值就是1
-*/
+    .bounce-enter-active {
+        animation: bounce .5s;
+    }
     
-    .bounce-enter, .bounce-leave-to {
-        transform: scale(0);
+    .bounce-leave-active {
+        animation: bounce .5s reverse;
     }
     
     h1 {
