@@ -1,0 +1,11 @@
+<transtion
+    @before-enter=""
+    @enter=""
+    @after-enter=""
+    @enter-canceled=""
+    @before-leave=""
+    @leave=""
+    @after-leave=""
+    @leave-cancelled=""
+    :css="false">
+</transition>
